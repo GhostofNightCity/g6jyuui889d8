@@ -101,7 +101,7 @@
       <div id="admin-panel">
         <h2>Admin</h2>
         <p>Only you can see this.</p>
-        <p style="margin-top:1rem; color:#9ca3af;">Site status: active<br>Login: pieMarlo / xi7b</p>
+        <p style="margin-top:1rem; color:#9ca3af;">Site status: active</p>
       </div>
 
       <section id="about" class="section">
@@ -152,7 +152,7 @@
       if (user === 'pieMarlo' && pass === 'xi7b') {
         document.getElementById('login-screen').style.display = 'none';
         document.getElementById('main-content').style.display = 'block';
-        document.getElementById('admin-panel').style.display = 'block';
+        document.getElementById('admin-panel').style.display = 'none';
       } else if (user === 'admin' && pass === 'xi7b') {
         document.getElementById('login-screen').style.display = 'none';
         document.getElementById('main-content').style.display = 'block';

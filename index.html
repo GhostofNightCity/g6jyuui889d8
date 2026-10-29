@@ -8,65 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
-  <style>
-    #login-screen {
-      position: fixed;
-      inset: 0;
-      background: #05070a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-    }
-    #login-box {
-      background: #0d1117;
-      padding: 2rem;
-      border-radius: 12px;
-      border: 1px solid #1f2937;
-      text-align: center;
-      width: 320px;
-    }
-    #login-box h2 {
-      font-family: 'Creepster', cursive;
-      color: #ef4444;
-      margin-bottom: 1rem;
-    }
-    #login-box input {
-      width: 100%;
-      padding: 0.75rem;
-      margin: 0.5rem 0;
-      background: #05070a;
-      border: 1px solid #1f2937;
-      color: #d1d5db;
-      border-radius: 6px;
-    }
-    #login-box button {
-      width: 100%;
-      padding: 0.75rem;
-      margin-top: 1rem;
-      background: #ef4444;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    #login-box button:hover { background: #dc2626; }
-    #error { color: #ef4444; font-size: 0.85rem; margin-top: 0.5rem; display: none; }
-    #main-content { display: none; }
-  </style>
 </head>
 <body>
-  <div id="login-screen">
-    <div id="login-box">
-      <h2>pieMarlo</h2>
-      <input type="text" id="username" placeholder="Username" autocomplete="off" />
-      <input type="password" id="password" placeholder="Password" />
-      <button onclick="checkLogin()">Enter</button>
-      <div id="error">Wrong code.</div>
-    </div>
-  </div>
-
   <div id="main-content">
     <header>
       <nav>
@@ -126,38 +69,5 @@
       <p>&copy; 2026 pieMarlo</p>
     </footer>
   </div>
-
-  <script>
-    function showContent() {
-      document.getElementById('login-screen').style.display = 'none';
-      document.getElementById('main-content').style.display = 'block';
-    }
-
-    function checkLogin() {
-      const user = document.getElementById('username').value;
-      const pass = document.getElementById('password').value;
-      const error = document.getElementById('error');
-
-      if ((user === 'pieMarlo' || user === 'admin') && pass === 'xi7b') {
-        localStorage.setItem('pieMarloOwner', 'true');
-        showContent();
-      } else {
-        error.style.display = 'block';
-        document.getElementById('password').value = '';
-      }
-    }
-
-    // Auto-skip for owner if previously logged in or special link
-    if (localStorage.getItem('pieMarloOwner') === 'true' || window.location.search.includes('owner=xi7b')) {
-      if (window.location.search.includes('owner=xi7b')) {
-        localStorage.setItem('pieMarloOwner', 'true');
-      }
-      showContent();
-    }
-
-    document.getElementById('password').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') checkLogin();
-    });
-  </script>
 </body>
 </html>

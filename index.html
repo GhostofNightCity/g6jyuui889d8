@@ -54,6 +54,16 @@
     #login-box button:hover { background: #dc2626; }
     #error { color: #ef4444; font-size: 0.85rem; margin-top: 0.5rem; display: none; }
     #main-content { display: none; }
+    #admin-panel {
+      display: none;
+      background: #111827;
+      border: 1px solid #ef4444;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 600px;
+    }
+    #admin-panel h2 { color: #ef4444; margin-bottom: 1rem; }
   </style>
 </head>
 <body>
@@ -87,6 +97,12 @@
           <p class="tagline">She waits in the trees...</p>
         </div>
       </section>
+
+      <div id="admin-panel">
+        <h2>Admin</h2>
+        <p>Only you can see this.</p>
+        <p style="margin-top:1rem; color:#9ca3af;">Site status: active<br>Login: pieMarlo / xi7b</p>
+      </div>
 
       <section id="about" class="section">
         <h2>About</h2>
@@ -136,6 +152,11 @@
       if (user === 'pieMarlo' && pass === 'xi7b') {
         document.getElementById('login-screen').style.display = 'none';
         document.getElementById('main-content').style.display = 'block';
+        document.getElementById('admin-panel').style.display = 'block';
+      } else if (user === 'admin' && pass === 'xi7b') {
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        document.getElementById('admin-panel').style.display = 'block';
       } else {
         error.style.display = 'block';
         document.getElementById('password').value = '';
